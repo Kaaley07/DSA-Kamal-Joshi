@@ -1,0 +1,31 @@
+BINARY SEARCH  :
+It is a much faster search algorithm with a time complexity of O(log n), but it only works on sorted arrays. The algorithm works by dividing the search interval in half with each step
+CODE  :
+public class binarysearch {
+    public static void main(String[] args) {
+        int[] arr = {11, 22, 32, 33, 121, 233, 333};
+        int target = 32;
+        int ans =binary(arr, target);
+        System.out.println(ans);
+    }
+
+    static int binary(int[]arr,int target) {
+        int start=0;
+        int end=arr.length-1;
+
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(target<arr[mid]){
+                end=mid-1;
+            }
+            else if(target>arr[mid]){
+                start=mid+1;
+            }
+            else {
+                return mid;
+
+            }
+        }
+        return -1;
+    }
+}
